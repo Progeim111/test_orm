@@ -1,5 +1,5 @@
-import {Calculator} from "../func_test/calculator1";
-//import {Calculator} from "../calculator2";
+import {Calculator} from "../func_test/calculator2";
+//import {Calculator} from "../func_test/calculator1";
 
 let calcobj:Calculator=null;
 
@@ -21,12 +21,21 @@ test('simple input', ()=>{
     expect(calcobj.getPanelContents()).toBe("8");
 });
 
-test('simple input', ()=>{
-    calcobj.pressButton('9');
-    expect(calcobj.getPanelContents()).toBe("9");
+test('multiple symbols input', ()=>{
+    calcobj.pressButton('7');
+    calcobj.pressButton('8');
+    expect(calcobj.getPanelContents()).toBe("78");
 });
 
-test('simple input', ()=>{
-    calcobj.pressButton('4');
-    expect(calcobj.getPanelContents()).toBe("4");
+test('multiple symbols input', ()=>{
+    calcobj.pressButton('3');
+    calcobj.pressButton('2');
+    expect(calcobj.getPanelContents()).toBe("32");
+});
+
+test('multiple symbols input', ()=>{
+    calcobj.pressButton('1');
+    calcobj.pressButton('2');
+    calcobj.pressButton('3');
+    expect(calcobj.getPanelContents()).toBe("123");
 });
