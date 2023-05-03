@@ -3,12 +3,14 @@ class Calculator {
     protected memoryContents: number = 0;
     protected markContents: string = "";
     protected marks: string[] = ["+", "-", "X", "/"];
+    protected lastNumber: number = 0;
 
     pressButton(b: string): void {
         if (b === "C") {
             this.panelContents = "";
             this.memoryContents = 0;
             this.markContents = "";
+            this.lastNumber = 0;
         } else if (this.marks.includes(b)) {
             if (this.panelContents !== "") {
                 if (this.markContents === "") {
@@ -16,6 +18,7 @@ class Calculator {
                 } else {
                     this.performCalculation();
                 }
+                this.lastNumber = parseFloat(this.panelContents);
                 this.markContents = b;
                 this.panelContents = ""; // Clear the panel contents to enter the next number
             }
@@ -40,6 +43,10 @@ class Calculator {
             }
             this.panelContents = this.memoryContents.toString();
             this.markContents = "";
+            this.lastNumber = 0;
+        } else if (this.markContents.length === 0) {
+            this.lastNumber = parseFloat(this.panelContents);
+            this.panelContents = "";
         }
     }
 
@@ -47,7 +54,7 @@ class Calculator {
         if (this.panelContents.length > 0) {
             return this.panelContents;
         }
-        return "0";
+        return this.lastNumber.toString();
     }
 }
 
