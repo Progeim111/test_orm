@@ -1,6 +1,7 @@
 //import {Calculator} from "../func_test/calculator2";
 //import {Calculator} from "../func_test/calculator1";
 import {Calculator} from "../func_test/calculator3";
+//import {Calculator} from "../func_test/calculator2";
 
 let calcobj:Calculator=null;
 
