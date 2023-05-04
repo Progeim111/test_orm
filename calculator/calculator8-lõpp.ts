@@ -43,4 +43,6 @@ class Calculator{
     }
 }
 
-export{ Calculator }
+export{
+    Calculator
+}

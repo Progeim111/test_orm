@@ -25,6 +25,7 @@ class Calculator{
                 if(this.markContents=="/"){
                     this.panelContents=(this.memoryContents/parseFloat(this.panelContents)).toString();
                 }
+
             }
         }
         else{
